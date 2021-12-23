@@ -48,37 +48,37 @@ class _InputSayfasiState extends State<InputSayfasi> {
             ),
           ),
           Expanded(
-            child: MyContainer(),
+            child: MyContainer(
+              width: 600,
+            ),
           ),
           Expanded(
+            flex: 1,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  child: MyContainer(
-                    renk: selectGender == "KADIN" ? Colors.pink : Colors.white,
-                    sonPress: () {
-                      setState(() {
-                        selectGender == "KADIN";
-                      });
-                    },
-                    child: const CenderWigdet(),
-                  ),
+                MyContainer(
+                  renk: selectGender == "KADIN" ? Colors.pink : Colors.white,
+                  sonPress: () {
+                    setState(() {
+                      selectGender = "KADIN";
+                    });
+                    secimiSifirla();
+                  },
+                  child: const CenderWigdet(),
                 ),
-                Expanded(
-                  child: MyContainer(
-                    renk: selectGender == "ERKEK"
-                        ? Colors.blueAccent
-                        : Colors.white,
-                    sonPress: () {
-                      setState(() {
-                        selectGender == "ERKEK";
-                      });
-                    },
-                    child: const CenderWigdet(
-                      gender: "Erkek",
-                      icon: FontAwesomeIcons.mars,
-                    ),
+                MyContainer(
+                  renk:
+                      selectGender == "ERKEK" ? Colors.lightBlue : Colors.white,
+                  sonPress: () async {
+                    setState(() {
+                      selectGender = "ERKEK";
+                    });
+                    secimiSifirla();
+                  },
+                  child: const CenderWigdet(
+                    gender: "Erkek",
+                    icon: FontAwesomeIcons.mars,
                   ),
                 ),
               ],
@@ -87,5 +87,13 @@ class _InputSayfasiState extends State<InputSayfasi> {
         ],
       ),
     );
+  }
+
+  void secimiSifirla() {
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      setState(() {
+        selectGender = "";
+      });
+    });
   }
 }
