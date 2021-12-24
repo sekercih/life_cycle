@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: Colors.blueAccent, primaryColor: Colors.red),
+          primaryColorLight: Colors.purple,
+          scaffoldBackgroundColor: Colors.blue[900],
+          primaryColor: Colors.red),
       home: const InputSayfasi(),
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class MyContainer extends StatelessWidget {
@@ -27,7 +25,7 @@ class MyContainer extends StatelessWidget {
       },
       child: Container(
         height: height ?? size.height * 0.5 - margin,
-        width: width ?? size.width * 0.5 - margin * 2,
+        width: width ?? size.width * 0.33 - margin * 2,
         child: child,
         margin: EdgeInsets.all(margin),
         decoration: BoxDecoration(

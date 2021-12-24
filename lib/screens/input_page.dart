@@ -12,6 +12,7 @@ class InputSayfasi extends StatefulWidget {
 
 class _InputSayfasiState extends State<InputSayfasi> {
   String selectGender = "";
+  static double _icilenSigara = 2.0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -49,6 +51,30 @@ class _InputSayfasiState extends State<InputSayfasi> {
           ),
           Expanded(
             child: MyContainer(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text("Günde Kaç sigara içiliyor",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
+                  Text(
+                    "5",
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  // Slider.adaptive(
+                  //     value: _icilenSigara,
+                  //     onChanged: (double newValue) {
+                  //       setState(() {
+                  //         _icilenSigara = newValue;
+                  //       });
+                  //     })
+                ],
+              ),
               width: 600,
             ),
           ),
@@ -79,6 +105,22 @@ class _InputSayfasiState extends State<InputSayfasi> {
                   child: const CenderWigdet(
                     gender: "Erkek",
                     icon: FontAwesomeIcons.mars,
+                  ),
+                ),
+                MyContainer(
+                  renk: selectGender == "DİĞER"
+                      ? Color(0x8EE70707)
+                      : Colors.white,
+                  sonPress: () async {
+                    setState(() {
+                      selectGender = "DİĞER";
+                    });
+                    secimiSifirla();
+                  },
+                  child: const CenderWigdet(
+                    color: Color(0xFFE0491A),
+                    gender: "DİĞER",
+                    icon: FontAwesomeIcons.transgender,
                   ),
                 ),
               ],
