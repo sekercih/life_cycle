@@ -16,6 +16,8 @@ class _InputSayfasiState extends State<InputSayfasi> {
   double icilenSigara = 6.0;
   double spor = 2.0;
   double suIcmek = 2.0;
+  int boy = 180;
+  int kilo = 75;
 
   @override
   Widget build(BuildContext context) {
@@ -36,42 +38,13 @@ class _InputSayfasiState extends State<InputSayfasi> {
               children: <Widget>[
                 Expanded(
                   child: MyContainer(
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            "Boy",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            "170",
-                            style: sayiStyle,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.plus,
-                              size: 50,
-                            ),
-                            Icon(
-                              FontAwesomeIcons.minus,
-                              size: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                    child: buttonRow("BOY"),
                   ),
                 ),
                 Expanded(
-                  child: MyContainer(),
+                  child: MyContainer(
+                    child: buttonRow("KİLO"),
+                  ),
                 ),
               ],
             ),
@@ -176,7 +149,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
                     setState(() {
                       selectGender = "KADIN";
                     });
-                    secimiSifirla();
+                    //secimiSifirla();
                   },
                   child: const CenderWigdet(),
                 ),
@@ -187,7 +160,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
                     setState(() {
                       selectGender = "ERKEK";
                     });
-                    secimiSifirla();
+                    //secimiSifirla();
                   },
                   child: const CenderWigdet(
                     gender: "Erkek",
@@ -202,7 +175,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
                     setState(() {
                       selectGender = "DİĞER";
                     });
-                    secimiSifirla();
+                    //secimiSifirla();
                   },
                   child: const CenderWigdet(
                     color: Color(0xFFE0491A),
@@ -215,6 +188,68 @@ class _InputSayfasiState extends State<InputSayfasi> {
           ),
         ],
       ),
+    );
+  }
+
+  Row buttonRow(String veriDate) {
+    return Row(
+      children: [
+        RotatedBox(
+          quarterTurns: 3,
+          child: Text(
+            veriDate,
+            style: metinStyle,
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        RotatedBox(
+          quarterTurns: 3,
+          child: Text(
+            veriDate == "BOY" ? '$boy' : '$kilo',
+            style: sayiStyle,
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              style: buttonStyle,
+              onPressed: () {
+                setState(() {
+                  veriDate == "BOY" ? boy++ : kilo++;
+                });
+
+                print("artı");
+              },
+              child: Icon(
+                FontAwesomeIcons.plus,
+                size: 40,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              style: buttonStyle,
+              onPressed: () {
+                setState(() {
+                  veriDate == "BOY" ? boy-- : kilo--;
+                });
+                print("eksi");
+              },
+              child: Icon(
+                FontAwesomeIcons.minus,
+                size: 40,
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 
