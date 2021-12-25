@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:life_cycle_application/constants.dart';
 import 'package:life_cycle_application/wigdets/gender_wigdet.dart';
 import 'package:life_cycle_application/wigdets/my_container_wigdet.dart';
 
@@ -31,94 +30,54 @@ class _InputSayfasiState extends State<InputSayfasi> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Expanded(
-                  child: MyContainer(
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            "Boy",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            "170",
-                            style: sayiStyle,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.plus,
-                              size: 50,
-                            ),
-                            Icon(
-                              FontAwesomeIcons.minus,
-                              size: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+            child: MyContainer(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Günde Kaç Litre Su İçersin",
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
-                ),
-                Expanded(
-                  child: MyContainer(),
-                ),
-              ],
+                  Text(suIcmek.round().toString(),
+                      style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.blue.shade700,
+                          fontWeight: FontWeight.bold)),
+                  Slider.adaptive(
+                      max: 4,
+                      min: 0,
+                      divisions: 20,
+                      label: "$suIcmek",
+                      value: suIcmek,
+                      onChanged: (double newSu) {
+                        setState(() {
+                          suIcmek = newSu;
+                        });
+                      })
+                ],
+              ),
             ),
           ),
-          // Expanded(
-          //   child: MyContainer(
-          //     child: Column(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         const Text(
-          //           "Günde Kaç Litre Su İçersin",
-          //           style: TextStyle(
-          //               fontSize: 25,
-          //               color: Colors.black,
-          //               fontWeight: FontWeight.bold),
-          //         ),
-          //         Text(suIcmek.round().toString(),
-          //             style: TextStyle(
-          //                 fontSize: 35,
-          //                 color: Colors.blue.shade700,
-          //                 fontWeight: FontWeight.bold)),
-          //         Slider.adaptive(
-          //             max: 4,
-          //             min: 0,
-          //             divisions: 20,
-          //             label: "$suIcmek",
-          //             value: suIcmek,
-          //             onChanged: (double newSu) {
-          //               setState(() {
-          //                 suIcmek = newSu;
-          //               });
-          //             })
-          //       ],
-          //     ),
-          //   ),
-          // ),
-
           Expanded(
             child: MyContainer(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Haftada Kaç Gün Spor Yaparsın",
-                    style: metinStyle,
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
-                  Text(spor.round().toString(), style: sayiStyle),
+                  Text(spor.round().toString(),
+                      style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.blue.shade700,
+                          fontWeight: FontWeight.bold)),
                   Slider.adaptive(
                       max: 7,
                       min: 0,
@@ -139,9 +98,12 @@ class _InputSayfasiState extends State<InputSayfasi> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "Günde Kaç Sigara İçiyorsun",
-                    style: metinStyle,
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     icilenSigara.round().toString(),

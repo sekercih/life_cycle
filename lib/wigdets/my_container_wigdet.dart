@@ -24,7 +24,7 @@ class MyContainer extends StatelessWidget {
         sonPress == null ? () {} : sonPress!();
       },
       child: Container(
-        height: height ?? size.height * 0.5 - margin,
+        height: height ?? size.height * 0.2 - margin,
         width: width ?? size.width * 0.33 - margin * 2,
         child: child,
         margin: EdgeInsets.all(margin),

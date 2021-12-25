@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:life_cycle_application/constants.dart';
 
 class CenderWigdet extends StatelessWidget {
   final String gender;
@@ -26,11 +27,7 @@ class CenderWigdet extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text(gender,
-            style: const TextStyle(
-              fontSize: 25,
-              color: Colors.black,
-            ))
+        Text(gender, style: metinStyle)
       ],
     );
   }
