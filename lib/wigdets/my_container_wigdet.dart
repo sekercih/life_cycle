@@ -18,13 +18,13 @@ class MyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double margin = 12;
+    double margin = 10;
     return GestureDetector(
       onTap: () {
         sonPress == null ? () {} : sonPress!();
       },
       child: Container(
-        height: height ?? size.height * 0.2 - margin,
+        height: height ?? size.height * 2 - margin,
         width: width ?? size.width * 0.33 - margin * 2,
         child: child,
         margin: EdgeInsets.all(margin),

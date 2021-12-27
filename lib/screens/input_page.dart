@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:life_cycle_application/constants.dart';
+import 'package:life_cycle_application/screens/sonuc.dart';
+import 'package:life_cycle_application/userdata/user_data.dart';
 import 'package:life_cycle_application/wigdets/gender_wigdet.dart';
 import 'package:life_cycle_application/wigdets/my_container_wigdet.dart';
 
@@ -33,6 +35,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
+            flex: 2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -83,6 +86,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
           // ),
 
           Expanded(
+            flex: 2,
             child: MyContainer(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +95,11 @@ class _InputSayfasiState extends State<InputSayfasi> {
                     "Haftada Kaç Gün Spor Yaparsın",
                     style: metinStyle,
                   ),
-                  Text(spor.round().toString(), style: sayiStyle),
+                  Text(
+                    spor.round().toString(),
+                    style: sayiStyle,
+                    // textAlign: TextAlign.center,
+                  ),
                   Slider.adaptive(
                       max: 7,
                       min: 0,
@@ -108,6 +116,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
             ),
           ),
           Expanded(
+            flex: 2,
             child: MyContainer(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -140,10 +149,13 @@ class _InputSayfasiState extends State<InputSayfasi> {
             ),
           ),
           Expanded(
+            flex: 2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 MyContainer(
+                  width: 100,
+                  height: 100,
                   renk: selectGender == "KADIN" ? Colors.pink : Colors.white,
                   sonPress: () {
                     setState(() {
@@ -154,6 +166,8 @@ class _InputSayfasiState extends State<InputSayfasi> {
                   child: const CenderWigdet(),
                 ),
                 MyContainer(
+                  width: 100,
+                  height: 100,
                   renk:
                       selectGender == "ERKEK" ? Colors.lightBlue : Colors.white,
                   sonPress: () async {
@@ -168,6 +182,8 @@ class _InputSayfasiState extends State<InputSayfasi> {
                   ),
                 ),
                 MyContainer(
+                  width: 100,
+                  height: 100,
                   renk: selectGender == "DİĞER"
                       ? Color(0x8EE70707)
                       : Colors.white,
@@ -185,6 +201,22 @@ class _InputSayfasiState extends State<InputSayfasi> {
                 ),
               ],
             ),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(primary: Colors.amber),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SonucPage(UserData(
+                          selectGender: selectGender,
+                          icilenSigara: icilenSigara,
+                          spor: spor,
+                          suIcmek: suIcmek,
+                          boy: boy,
+                          kilo: kilo))));
+            },
+            child: Text("HESAPLA", style: metinStyle),
           ),
         ],
       ),
