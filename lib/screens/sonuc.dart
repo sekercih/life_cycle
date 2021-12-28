@@ -31,7 +31,7 @@ class SonucPage extends StatelessWidget {
               child: Text("SENE YAŞARSIN BELKİ..",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 40.0,
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold))),
           Expanded(

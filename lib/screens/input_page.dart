@@ -120,7 +120,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
             child: MyContainer(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children: [
                   Text(
                     "Günde Kaç Sigara İçiyorsun",
                     style: metinStyle,
@@ -128,7 +128,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
                   Text(
                     icilenSigara.round().toString(),
                     style: TextStyle(
-                        fontSize: 35,
+                        fontSize: 15,
                         color: Colors.blue.shade700,
                         fontWeight: FontWeight.bold),
                   ),
@@ -145,7 +145,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
                       })
                 ],
               ),
-              width: 600,
+              width: 100,
             ),
           ),
           Expanded(
@@ -154,8 +154,6 @@ class _InputSayfasiState extends State<InputSayfasi> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 MyContainer(
-                  width: 100,
-                  height: 100,
                   renk: selectGender == "KADIN" ? Colors.pink : Colors.white,
                   sonPress: () {
                     setState(() {
@@ -166,8 +164,6 @@ class _InputSayfasiState extends State<InputSayfasi> {
                   child: const CenderWigdet(),
                 ),
                 MyContainer(
-                  width: 100,
-                  height: 100,
                   renk:
                       selectGender == "ERKEK" ? Colors.lightBlue : Colors.white,
                   sonPress: () async {
@@ -177,13 +173,11 @@ class _InputSayfasiState extends State<InputSayfasi> {
                     //secimiSifirla();
                   },
                   child: const CenderWigdet(
-                    gender: "Erkek",
+                    gender: "ERKEK",
                     icon: FontAwesomeIcons.mars,
                   ),
                 ),
                 MyContainer(
-                  width: 100,
-                  height: 100,
                   renk: selectGender == "DİĞER"
                       ? Color(0x8EE70707)
                       : Colors.white,
@@ -234,7 +228,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
           ),
         ),
         SizedBox(
-          width: 20,
+          width: 5,
         ),
         RotatedBox(
           quarterTurns: 3,
@@ -244,7 +238,7 @@ class _InputSayfasiState extends State<InputSayfasi> {
           ),
         ),
         SizedBox(
-          width: 20,
+          width: 5,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,

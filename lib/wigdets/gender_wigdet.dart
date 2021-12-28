@@ -21,7 +21,7 @@ class CenderWigdet extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 50,
+          size: 40,
           color: Colors.black,
         ),
         const SizedBox(
